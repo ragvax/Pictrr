@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.photodetails.PhotoDetailsFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/photo_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintDimensionRatio="4:3"
+        app:layout_constraintEnd_toEndOf="@id/end_guideline"
+        app:layout_constraintStart_toStartOf="@id/start_guideline"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_user_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        app:layout_constraintStart_toStartOf="@id/start_guideline"
+        app:layout_constraintTop_toBottomOf="@id/photo_container"
+        tools:text="Rizki Fajar" />
+
+    <TextView
+        android:id="@+id/tv_image_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+        app:layout_constraintEnd_toEndOf="@id/end_guideline"
+        app:layout_constraintStart_toStartOf="@id/start_guideline"
+        app:layout_constraintTop_toBottomOf="@id/tv_user_username"
+        tools:text="Here goes the image description" />
+
+    <TextView
+        android:id="@+id/tv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        app:layout_constraintStart_toStartOf="@id/start_guideline"
+        app:layout_constraintTop_toBottomOf="@id/tv_image_description"
+        tools:text="Jakarta, Indonesia" />
+
+    <Space
+        android:id="@+id/spacer1"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_location" />
+
+    <TextView
+        android:id="@+id/tv_title_likes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Likes"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        app:layout_constraintEnd_toStartOf="@id/tv_title_downloads"
+        app:layout_constraintStart_toStartOf="@id/start_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/spacer1" />
+
+    <TextView
+        android:id="@+id/tv_item_likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_likes"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_likes"
+        tools:text="3.4K" />
+
+    <TextView
+        android:id="@+id/tv_title_downloads"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Downloads"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        app:layout_constraintEnd_toStartOf="@id/tv_title_views"
+        app:layout_constraintStart_toEndOf="@id/tv_title_likes"
+        app:layout_constraintTop_toTopOf="@+id/tv_title_likes" />
+
+    <TextView
+        android:id="@+id/tv_item_downloads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_downloads"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_downloads"
+        tools:text="30K" />
+
+    <TextView
+        android:id="@+id/tv_title_views"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Views"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        app:layout_constraintEnd_toEndOf="@id/end_guideline"
+        app:layout_constraintStart_toEndOf="@id/tv_title_downloads"
+        app:layout_constraintTop_toTopOf="@+id/tv_title_downloads" />
+
+    <TextView
+        android:id="@+id/tv_item_views"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_views"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_views"
+        tools:text="1.9M" />
+
+    <Space
+        android:id="@+id/spacer2"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_likes" />
+
+    <TextView
+        android:id="@+id/tv_title_camera"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Camera"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_title_focal_length"
+        app:layout_constraintStart_toStartOf="@id/start_guideline"
+        app:layout_constraintTop_toBottomOf="@id/spacer2" />
+
+    <TextView
+        android:id="@+id/tv_item_camera"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_title_camera"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_camera"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_camera"
+        tools:text="Cannon 5D X1FJA alskdnalsjdlkajsldk" />
+
+    <TextView
+        android:id="@+id/tv_title_focal_length"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Focal Length"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/end_guideline"
+        app:layout_constraintStart_toEndOf="@id/tv_title_camera"
+        app:layout_constraintTop_toTopOf="@+id/tv_title_camera" />
+
+    <TextView
+        android:id="@+id/tv_item_focal_length"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_title_focal_length"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_focal_length"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_focal_length"
+        tools:text="35.0mm" />
+
+    <TextView
+        android:id="@+id/tv_title_aperture"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Aperture"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_title_shutter"
+        app:layout_constraintStart_toStartOf="@id/start_guideline"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_camera" />
+
+    <TextView
+        android:id="@+id/tv_item_aperture"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_title_aperture"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_aperture"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_aperture"
+        tools:text="f/1.45" />
+
+    <TextView
+        android:id="@+id/tv_title_shutter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Shutter Speed"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/end_guideline"
+        app:layout_constraintStart_toEndOf="@id/tv_title_aperture"
+        app:layout_constraintTop_toTopOf="@+id/tv_title_aperture" />
+
+    <TextView
+        android:id="@+id/tv_item_shutter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_title_shutter"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_shutter"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_shutter"
+        tools:text="1/320s" />
+
+    <TextView
+        android:id="@+id/tv_title_iso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="ISO"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/tv_title_dimension"
+        app:layout_constraintStart_toEndOf="@id/start_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_aperture" />
+
+    <TextView
+        android:id="@+id/tv_item_iso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_title_iso"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_iso"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_iso"
+        tools:text="400" />
+
+    <TextView
+        android:id="@+id/tv_title_dimension"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Dimension"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/end_guideline"
+        app:layout_constraintStart_toEndOf="@id/tv_title_iso"
+        app:layout_constraintTop_toTopOf="@+id/tv_title_iso" />
+
+    <TextView
+        android:id="@+id/tv_item_dimension"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_title_dimension"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_dimension"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_dimension"
+        tools:text="4000 x 6000" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/end_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/GalleryFragment">
+
+    <fragment
+        android:id="@+id/GalleryFragment"
+        android:name="com.ragvax.picttr.ui.gallery.GalleryFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_gallery">
+
+        <action
+            android:id="@+id/action_GalleryFragment_to_PhotoDetailsFragment"
+            app:destination="@id/DetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/DetailsFragment"
+        android:name="com.ragvax.picttr.ui.photodetails.PhotoDetailsFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_photo_details">
+
+        <argument
+            android:name="photo"
+            app:argType="com.ragvax.picttr.data.photo.model.Photo" />
+        <action
+            android:id="@+id/action_DetailsFragment_to_photoZoomFragment"
+            app:destination="@id/photoZoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoZoomFragment"
+        android:name="com.ragvax.picttr.ui.photodetails.PhotoZoomFragment"
+        android:label="fragment_photo_zoom"
+        tools:layout="@layout/fragment_photo_zoom" >
+        <argument
+            android:name="photo"
+            app:argType="com.ragvax.picttr.data.photo.model.Photo" />
+    </fragment>
+</navigation>
