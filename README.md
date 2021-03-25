@@ -45,8 +45,7 @@ Another Unsplash client, seriously? Well, I built this project to study the use 
 
 ### Unsplash API key
 
-Sunflower uses the [Unsplash API](https://unsplash.com/developers) to load pictures on the gallery
-screen. To use the API, you will need to obtain a free developer API key. See the
+Picttr uses the [Unsplash API](https://unsplash.com/developers) to load pictures. To use the API, you will need to obtain a free developer API key. See the
 [Unsplash API Documentation](https://unsplash.com/documentation) for instructions.
 
 Once you have the key, add this line to the `gradle.properties` file, either in your user home
@@ -54,3 +53,4 @@ directory (usually `~/.gradle/gradle.properties` on Linux and Mac) or in the pro
 
 ```
 unsplash_access_key=<your Unsplash access key>
+```
