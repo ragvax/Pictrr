@@ -1,6 +1,5 @@
 package com.ragvax.picttr.ui.photodetails
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ragvax.picttr.data.photo.model.Photo
@@ -37,7 +36,6 @@ class PhotoDetailsViewModel @Inject constructor(
 
     fun onPhotoClick(photo: Photo) = viewModelScope.launch {
         photoDetailsEventChannel.send(PhotoDetailsEvent.NavigateToPhotoZoom(photo))
-        Log.e("Transition", "onPhotoSelected: $photo")
     }
 
     sealed class PhotoDetails {

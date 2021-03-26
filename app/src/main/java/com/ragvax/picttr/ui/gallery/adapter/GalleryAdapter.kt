@@ -1,6 +1,5 @@
 package com.ragvax.picttr.ui.gallery.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintSet
@@ -39,7 +38,6 @@ class GalleryAdapter(
                 .into(itemImageView)
 
             setImageDimensionRatio(binding, calculateImageDimensionRatio(photo))
-            Log.i("Gallery", "Binding item done")
         }
     }
 
@@ -56,7 +54,6 @@ class GalleryAdapter(
     override fun onBindViewHolder(holder: GalleryViewHolder, position: Int) {
         val photo = getItem(position)
         if (photo != null) {
-            Log.i("Gallery", "OnBindVH $photo")
             holder.bind(photo)
         }
     }

@@ -1,7 +1,6 @@
 package com.ragvax.picttr.ui.gallery
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
@@ -85,7 +84,6 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery),
     private fun observeViewModel() {
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             viewModel.photosFlow.collectLatest {
-                Log.i("Gallery", "$it")
                 photosAdapter.submitData(it)
             }
         }

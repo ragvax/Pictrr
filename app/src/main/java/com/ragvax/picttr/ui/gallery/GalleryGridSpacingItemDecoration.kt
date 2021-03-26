@@ -1,7 +1,6 @@
 package com.ragvax.picttr.ui.gallery
 
 import android.graphics.Rect
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +16,6 @@ class GalleryGridSpacingItemDecoration(private val spacing: Int) : RecyclerView.
     ) {
         if (outRect != null && view != null && parent != null) {
             val (spanCount, spanIndex, spanSize) = extractGridData(parent, view)
-            Log.e("spacing", "$spanCount $spanIndex $spanSize")
             outRect.left = (spacing * ((spanCount - spanIndex) / spanCount.toFloat())).toInt()
             outRect.right = (spacing * ((spanIndex + spanSize) / spanCount.toFloat())).toInt()
             outRect.bottom = spacing

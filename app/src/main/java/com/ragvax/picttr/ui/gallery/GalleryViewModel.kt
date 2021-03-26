@@ -1,13 +1,15 @@
 package com.ragvax.picttr.ui.gallery
 
-import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asFlow
+import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.ragvax.picttr.data.photo.model.Photo
 import com.ragvax.picttr.data.topic.model.Topic
-import com.ragvax.picttr.domain.topic.TopicRepository
 import com.ragvax.picttr.domain.photo.PhotoRepository
+import com.ragvax.picttr.domain.topic.TopicRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -30,6 +32,7 @@ class GalleryViewModel @Inject constructor(
             state.set(CURRENT_QUERY, DEFAULT_QUERY)
         }
     }
+
 //    val photos = repository.getPhotos().cachedIn(viewModelScope)
     private val _topicsFlow = MutableStateFlow<TopicsEvent>(TopicsEvent.Empty)
     val topicsFlow: StateFlow<TopicsEvent> = _topicsFlow
