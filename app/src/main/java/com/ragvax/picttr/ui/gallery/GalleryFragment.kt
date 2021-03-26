@@ -48,37 +48,6 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery),
         photosLoadStateListener()
     }
 
-    private fun setupPhotosAdapter() {
-        photosAdapter = GalleryAdapter(this)
-        val headerAdapter = GalleryLoadStateAdapter{ photosAdapter.retry() }
-        val footerAdapter = GalleryLoadStateAdapter{ photosAdapter.retry() }
-        val concatAdapter = photosAdapter.withLoadStateHeaderAndFooter(
-            header = headerAdapter,
-            footer = footerAdapter,
-        )
-        val staggeredGridLayoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
-        staggeredGridLayoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE
-
-        binding.apply {
-            rvGallery.layoutManager = staggeredGridLayoutManager
-            rvGallery.setHasFixedSize(true)
-            rvGallery.adapter = concatAdapter
-            rvGallery.addItemDecoration(GalleryGridSpacingItemDecoration(16.dpToPixels(requireContext())))
-        }
-    }
-
-    private fun setupTopicsAdapter(topics: List<Topic>) {
-        topicsAdapter = GalleryTopicsAdapter(topics, this)
-        val layoutManager = LinearLayoutManager(requireContext())
-        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
-
-        binding.apply {
-            rvGalleryTags.layoutManager = layoutManager
-            rvGalleryTags.setHasFixedSize(true)
-            rvGalleryTags.adapter = topicsAdapter
-        }
-    }
-
     @FlowPreview
     @ExperimentalCoroutinesApi
     private fun observeViewModel() {
@@ -110,6 +79,37 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery),
 
                 }
             }
+        }
+    }
+
+    private fun setupPhotosAdapter() {
+        photosAdapter = GalleryAdapter(this)
+        val headerAdapter = GalleryLoadStateAdapter{ photosAdapter.retry() }
+        val footerAdapter = GalleryLoadStateAdapter{ photosAdapter.retry() }
+        val concatAdapter = photosAdapter.withLoadStateHeaderAndFooter(
+            header = headerAdapter,
+            footer = footerAdapter,
+        )
+        val staggeredGridLayoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
+        staggeredGridLayoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE
+
+        binding.apply {
+            rvGallery.layoutManager = staggeredGridLayoutManager
+            rvGallery.setHasFixedSize(true)
+            rvGallery.adapter = concatAdapter
+            rvGallery.addItemDecoration(GalleryGridSpacingItemDecoration(16.dpToPixels(requireContext())))
+        }
+    }
+
+    private fun setupTopicsAdapter(topics: List<Topic>) {
+        topicsAdapter = GalleryTopicsAdapter(topics, this)
+        val layoutManager = LinearLayoutManager(requireContext())
+        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+
+        binding.apply {
+            rvGalleryTags.layoutManager = layoutManager
+            rvGalleryTags.setHasFixedSize(true)
+            rvGalleryTags.adapter = topicsAdapter
         }
     }
 

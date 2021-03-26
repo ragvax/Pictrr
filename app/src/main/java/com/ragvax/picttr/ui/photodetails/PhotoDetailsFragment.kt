@@ -32,20 +32,11 @@ class PhotoDetailsFragment : Fragment(R.layout.fragment_photo_details) {
         // TODO: REFACTOR METHOD!
         viewModel.getPhotoDetails(photo.id)
 
-        binding.apply {
-            ivPhoto.loadPhotoUrlWithThumbnail(photo.urls.full, photo.urls.small, photo.color)
-            ivPhoto.setOnClickListener {
-                viewModel.onPhotoClick(photo)
-            }
+        initView(photo)
+        observeViewModel()
+    }
 
-            tvUserUsername.text = photo.user?.name
-            tvImageDescription.text = photo.description ?: "No description"
-            tvLocation.text = if (photo.location != null)
-                photo.location.city + ", " + photo.location.country
-            else
-                "No location"
-        }
-
+    private fun observeViewModel() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.photoDetails.collectLatest {
                 when (it) {
@@ -70,8 +61,18 @@ class PhotoDetailsFragment : Fragment(R.layout.fragment_photo_details) {
         }
     }
 
-    private fun bindDetails(photo: Photo) {
-        binding.apply {
+    private fun initView(photo: Photo) = with(binding) {
+        ivPhoto.loadPhotoUrlWithThumbnail(photo.urls.full, photo.urls.small, photo.color)
+        ivPhoto.setOnClickListener { viewModel.onPhotoClick(photo) }
+        tvUserUsername.text = photo.user?.name
+        tvImageDescription.text = photo.description ?: "No description"
+        tvLocation.text = if (photo.location != null)
+            photo.location.city + ", " + photo.location.country
+        else
+            "No location"
+    }
+
+    private fun bindDetails(photo: Photo) = with(binding) {
             tvItemLikes.text = (photo.likes ?: 0).toPrettyString()
             tvItemDownloads.text = (photo.downloads ?: 0).toPrettyString()
             tvItemViews.text = (photo.views ?: 0).toPrettyString()
@@ -82,11 +83,9 @@ class PhotoDetailsFragment : Fragment(R.layout.fragment_photo_details) {
             tvItemShutter.text = photo.exif?.exposure_time ?: "Unknown"
             tvItemIso.text = photo.exif?.iso?.toString() ?: "Unknown"
             tvItemDimension.text = "${photo.width} x ${photo.height}"
-        }
     }
 
-    private fun setDetailsVisibility(boolean: Boolean) {
-        binding.apply {
+    private fun setDetailsVisibility(boolean: Boolean) = with(binding) {
             tvTitleLikes.isVisible = boolean
             tvTitleDownloads.isVisible = boolean
             tvTitleViews.isVisible = boolean
@@ -106,7 +105,6 @@ class PhotoDetailsFragment : Fragment(R.layout.fragment_photo_details) {
             tvItemShutter.isVisible = boolean
             tvItemIso.isVisible = boolean
             tvItemDimension.isVisible = boolean
-        }
     }
 
     override fun onDestroy() {
