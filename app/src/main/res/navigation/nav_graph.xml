@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/GalleryFragment"
         android:name="com.ragvax.picttr.ui.gallery.GalleryFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/gallery_fragment_label"
         tools:layout="@layout/fragment_gallery">
 
         <action
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/DetailsFragment"
         android:name="com.ragvax.picttr.ui.photodetails.PhotoDetailsFragment"
-        android:label="@string/second_fragment_label"
+        android:label="@string/details_fragment_label"
         tools:layout="@layout/fragment_photo_details">
 
         <argument
@@ -31,7 +31,7 @@
     <fragment
         android:id="@+id/photoZoomFragment"
         android:name="com.ragvax.picttr.ui.photodetails.PhotoZoomFragment"
-        android:label="fragment_photo_zoom"
+        android:label="@string/photo_zoom_fragment_label"
         tools:layout="@layout/fragment_photo_zoom" >
         <argument
             android:name="photo"

@@ -2,8 +2,9 @@
     <string name="app_name">Picttr</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">Gallery Fragment</string>
-    <string name="second_fragment_label">Photo Details Fragment</string>
+    <string name="gallery_fragment_label">Picttr</string>
+    <string name="details_fragment_label">Details</string>
+    <string name="photo_zoom_fragment_label">Zoom Photo</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 

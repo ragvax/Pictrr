@@ -14,12 +14,12 @@
         android:paddingHorizontal="12dp"
         android:paddingVertical="8dp"
         android:textAlignment="center"
-        android:textColor="#4c4c4c"
         android:textSize="16sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Menu" />
+        tools:text="Topic Title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

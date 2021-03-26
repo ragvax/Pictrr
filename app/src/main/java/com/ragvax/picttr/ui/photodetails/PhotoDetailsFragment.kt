@@ -29,11 +29,14 @@ class PhotoDetailsFragment : Fragment(R.layout.fragment_photo_details) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentPhotoDetailsBinding.bind(view)
         val photo = args.photo
-        // TODO: REFACTOR METHOD!
-        viewModel.getPhotoDetails(photo.id)
+        getPhotoDetails(photo.id)
 
         initView(photo)
         observeViewModel()
+    }
+
+    private fun getPhotoDetails(id: String) {
+        viewModel.getPhotoDetails(id)
     }
 
     private fun observeViewModel() {

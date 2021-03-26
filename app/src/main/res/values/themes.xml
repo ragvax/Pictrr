@@ -10,21 +10,19 @@
         <item name="colorSecondaryVariant">@color/secondaryLightColor</item>
         <item name="colorOnSecondary">@color/secondaryTextColor</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="android:statusBarColor">?attr/colorSecondary</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
         <!-- Customize your theme here. -->
     </style>
 
     <style name="Theme.Picttr.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="Theme.Picttr.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="elevation">0dp</item>
     </style>
 
-    <style name="Theme.Picttr.Toolbar" parent="Widget.MaterialComponents.Toolbar">
-        <item name="background">?attr/colorSecondary</item>
+    <style name="Theme.Picttr.Toolbar">
+        <item name="android:background">?attr/colorSecondary</item>
         <item name="titleTextColor">?attr/colorOnSecondary</item>
     </style>
 

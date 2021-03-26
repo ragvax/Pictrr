@@ -62,7 +62,6 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery),
                 when (it) {
                     is GalleryViewModel.TopicsEvent.Success -> {
                         setupTopicsAdapter(it.topics)
-                        Toast.makeText(requireContext(), "Topics is Loaded", Toast.LENGTH_SHORT).show()
                     }
                     is GalleryViewModel.TopicsEvent.Empty -> {
                         Toast.makeText(requireContext(), "Topics is Empty", Toast.LENGTH_SHORT).show()
