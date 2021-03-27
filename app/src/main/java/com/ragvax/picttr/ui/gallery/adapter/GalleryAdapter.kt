@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.ragvax.picttr.data.photo.model.Photo
 import com.ragvax.picttr.databinding.ItemPhotoBinding
+import com.ragvax.picttr.utils.loadGridPhotoUrl
 
 class GalleryAdapter(
     private val listener: OnItemClickListener
@@ -30,13 +31,7 @@ class GalleryAdapter(
         }
 
         fun bind(photo: Photo) = with(binding) {
-            Glide.with(itemView)
-                .load(photo.urls.small)
-                .thumbnail(0.05f)
-                .centerCrop()
-                .transition(DrawableTransitionOptions.withCrossFade())
-                .into(itemImageView)
-
+            itemImageView.loadGridPhotoUrl(photo.urls.small, photo.color)
             setImageDimensionRatio(binding, calculateImageDimensionRatio(photo))
         }
     }
@@ -63,12 +58,8 @@ class GalleryAdapter(
     }
 
     private class PhotoDiffCallback : DiffUtil.ItemCallback<Photo>() {
-        override fun areItemsTheSame(oldItem: Photo, newItem: Photo): Boolean {
-            return oldItem.id == newItem.id
-        }
-        override fun areContentsTheSame(oldItem: Photo, newItem: Photo): Boolean {
-            return oldItem == newItem
-        }
+        override fun areItemsTheSame(oldItem: Photo, newItem: Photo) = oldItem.id == newItem.id
+        override fun areContentsTheSame(oldItem: Photo, newItem: Photo) = oldItem == newItem
     }
 
     private fun calculateImageDimensionRatio(photo: Photo): String {
