@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_DetailsFragment_to_photoZoomFragment"
             app:destination="@id/photoZoomFragment" />
+        <action
+            android:id="@+id/action_DetailsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/photoZoomFragment"
@@ -36,5 +39,13 @@
         <argument
             android:name="photo"
             app:argType="com.ragvax.picttr.data.photo.model.Photo" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ragvax.picttr.ui.profile.ProfileFragment"
+        android:label="Profile" >
+        <argument
+            android:name="user"
+            app:argType="com.ragvax.picttr.data.user.model.User" />
     </fragment>
 </navigation>

@@ -3,6 +3,7 @@ package com.ragvax.picttr.ui.photodetails
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ragvax.picttr.data.photo.model.Photo
+import com.ragvax.picttr.data.user.model.User
 import com.ragvax.picttr.domain.photo.PhotoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -38,6 +39,10 @@ class PhotoDetailsViewModel @Inject constructor(
         photoDetailsEventChannel.send(PhotoDetailsEvent.NavigateToPhotoZoom(photo))
     }
 
+    fun onUserClick(user: User?) = viewModelScope.launch {
+        photoDetailsEventChannel.send(PhotoDetailsEvent.NavigateToUserProfile(user))
+    }
+
     sealed class PhotoDetails {
         data class Success(val photoDetails: Photo) : PhotoDetails()
         object Empty : PhotoDetails()
@@ -45,5 +50,6 @@ class PhotoDetailsViewModel @Inject constructor(
 
     sealed class PhotoDetailsEvent {
         data class NavigateToPhotoZoom(val photo: Photo) : PhotoDetailsEvent()
+        data class NavigateToUserProfile(val user: User?) : PhotoDetailsEvent()
     }
 }

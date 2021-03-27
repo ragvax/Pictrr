@@ -2,6 +2,7 @@ package com.ragvax.picttr.ui.photodetails
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -60,6 +61,10 @@ class PhotoDetailsFragment : Fragment(R.layout.fragment_photo_details) {
                     val action = PhotoDetailsFragmentDirections.actionDetailsFragmentToPhotoZoomFragment(event.photo)
                     findNavController().navigate(action)
                 }
+                is PhotoDetailsViewModel.PhotoDetailsEvent.NavigateToUserProfile -> {
+                    val action = PhotoDetailsFragmentDirections.actionDetailsFragmentToProfileFragment(event.user!!)
+                    findNavController().navigate(action)
+                }
             }
         }
     }
@@ -68,6 +73,7 @@ class PhotoDetailsFragment : Fragment(R.layout.fragment_photo_details) {
         ivPhoto.loadPhotoUrlWithThumbnail(photo.urls.full, photo.urls.small, photo.color)
         ivPhoto.setOnClickListener { viewModel.onPhotoClick(photo) }
         tvUserUsername.text = photo.user?.name
+        tvUserUsername.setOnClickListener { viewModel.onUserClick(photo.user) }
         tvImageDescription.text = photo.description ?: "No description"
         tvLocation.text = if (photo.location != null)
             photo.location.city + ", " + photo.location.country
