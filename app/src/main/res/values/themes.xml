@@ -26,4 +26,168 @@
         <item name="titleTextColor">?attr/colorOnSecondary</item>
     </style>
 
+    <!-- Typography -->
+    <!-- Headline3 -->
+    <style name="TextAppearance.Picttr.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="android:textSize">48sp</item>
+
+        <item name="lineHeight">64sp</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+
+    <style name="Theme.Picttr.Headline3">
+        <item name="android:textAppearance">@style/TextAppearance.Picttr.Headline3</item>
+        <item name="firstBaselineToTopHeight">52sp</item>
+        <item name="lastBaselineToBottomHeight">16sp</item>
+    </style>
+    <!-- Headline3 -->
+
+    <!-- Headline4 -->
+    <style name="TextAppearance.Picttr.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textSize">34sp</item>
+
+        <item name="lineHeight">48sp</item>
+        <item name="android:letterSpacing">0.0075</item>
+    </style>
+
+    <style name="Theme.Picttr.Headline4">
+        <item name="android:textAppearance">@style/TextAppearance.Picttr.Headline4</item>
+        <item name="firstBaselineToTopHeight">36sp</item>
+        <item name="lastBaselineToBottomHeight">12sp</item>
+    </style>
+    <!-- Headline4 -->
+
+    <!-- Headline5 -->
+    <style name="TextAppearance.Picttr.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">24sp</item>
+
+        <item name="lineHeight">36sp</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+
+    <style name="Theme.Picttr.Headline5">
+        <item name="android:textAppearance">@style/TextAppearance.Picttr.Headline5</item>
+        <item name="firstBaselineToTopHeight">28sp</item>
+        <item name="lastBaselineToBottomHeight">8sp</item>
+    </style>
+    <!-- Headline5 -->
+
+    <!-- Headline6 -->
+    <style name="TextAppearance.Picttr.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">20sp</item>
+
+        <item name="lineHeight">32sp</item>
+        <item name="android:letterSpacing">0.0075</item>
+    </style>
+
+    <style name="Theme.Picttr.Headline6">
+        <item name="android:textAppearance">@style/TextAppearance.Picttr.Headline6</item>
+        <item name="firstBaselineToTopHeight">24sp</item>
+        <item name="lastBaselineToBottomHeight">8sp</item>
+    </style>
+    <!-- Headline6 -->
+
+    <!-- Subtitle1 -->
+    <style name="TextAppearance.Picttr.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">16sp</item>
+
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.009375</item>
+    </style>
+
+    <style name="Theme.Picttr.Subtitle1">
+        <item name="android:textAppearance">@style/TextAppearance.Picttr.Subtitle1</item>
+        <item name="firstBaselineToTopHeight">20sp</item>
+        <item name="lastBaselineToBottomHeight">8sp</item>
+    </style>
+    <!-- Subtitle1 -->
+
+    <!-- Subtitle2 -->
+    <style name="TextAppearance.Picttr.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textSize">14sp</item>
+
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.007145</item>
+    </style>
+
+    <style name="Theme.Picttr.Subtitle2">
+        <item name="android:textAppearance">@style/TextAppearance.Picttr.Subtitle2</item>
+        <item name="firstBaselineToTopHeight">16sp</item>
+        <item name="lastBaselineToBottomHeight">4sp</item>
+    </style>
+    <!-- Subtitle2 -->
+
+    <!-- Button -->
+    <style name="TextAppearance.Picttr.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textSize">14sp</item>
+
+        <item name="lineHeight">20sp</item>
+        <item name="android:letterSpacing">0.05715</item>
+    </style>
+
+    <style name="Theme.Picttr.Button">
+        <item name="android:textAppearance">@style/TextAppearance.Picttr.Button</item>
+        <item name="firstBaselineToTopHeight">16sp</item>
+        <item name="lastBaselineToBottomHeight">4sp</item>
+    </style>
+    <!-- Button -->
+
+    <!-- Body1 -->
+    <style name="TextAppearance.Picttr.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">16sp</item>
+
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.003125</item>
+    </style>
+
+    <style name="Theme.Picttr.Body1">
+        <item name="android:textAppearance">@style/TextAppearance.Picttr.Body1</item>
+        <item name="firstBaselineToTopHeight">20sp</item>
+        <item name="lastBaselineToBottomHeight">8sp</item>
+    </style>
+    <!-- Body1 -->
+
+    <!-- Body2 -->
+    <style name="TextAppearance.Picttr.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textSize">14sp</item>
+
+        <item name="lineHeight">20sp</item>
+    </style>
+
+    <style name="Theme.Picttr.Body2">
+        <item name="android:textAppearance">@style/TextAppearance.Picttr.Body2</item>
+        <item name="firstBaselineToTopHeight">16sp</item>
+        <item name="lastBaselineToBottomHeight">4sp</item>
+    </style>
+    <!-- Body2 -->
+
+    <!-- Caption -->
+    <style name="TextAppearance.Picttr.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+
+        <item name="lineHeight">16sp</item>
+    </style>
+
+    <style name="Theme.Picttr.Caption">
+        <item name="android:textAppearance">@style/TextAppearance.Picttr.Caption</item>
+        <item name="firstBaselineToTopHeight">12sp</item>
+        <item name="lastBaselineToBottomHeight">4sp</item>
+    </style>
+    <!-- Caption -->
+
+    <!-- Overline -->
+    <style name="TextAppearance.Picttr.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="android:textSize">10sp</item>
+
+        <item name="lineHeight">16sp</item>
+        <item name="android:letterSpacing">0.15</item>
+    </style>
+
+    <style name="Theme.Picttr.Overline">
+        <item name="android:textAppearance">@style/TextAppearance.Picttr.Overline</item>
+        <item name="firstBaselineToTopHeight">12sp</item>
+        <item name="lastBaselineToBottomHeight">4sp</item>
+    </style>
+    <!-- Overline -->
+
 </resources>
