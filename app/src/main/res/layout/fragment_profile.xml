@@ -8,52 +8,50 @@
 
     <ImageView
         android:id="@+id/iv_profile_picture"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
         app:layout_constraintStart_toStartOf="@+id/start_guideline"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/desc_profile_picture" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_name"
+        style="@style/Theme.Picttr.Subtitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-        app:layout_constraintBottom_toTopOf="@id/tv_location"
         app:layout_constraintStart_toStartOf="@+id/start_guideline"
         app:layout_constraintTop_toBottomOf="@+id/iv_profile_picture"
-        app:layout_constraintVertical_chainStyle="packed"
         tools:text="Rizki Fajar" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_location"
+        style="@style/Theme.Picttr.Caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
         app:layout_constraintStart_toStartOf="@+id/tv_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_name"
         tools:text="Jakarta, Indonesia" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_bio"
+        style="@style/Theme.Picttr.Body2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-        android:textSize="12sp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toStartOf="@+id/end_guideline"
         app:layout_constraintStart_toStartOf="@+id/start_guideline"
         app:layout_constraintTop_toBottomOf="@+id/tv_location"
-        tools:text="I take picture, that's it." />
+        tools:text="A computer science student who loves to takes picture on his free time." />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_item_photos"
+        style="@style/Theme.Picttr.Headline6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         app:layout_constraintBottom_toTopOf="@+id/tv_title_photos"
         app:layout_constraintEnd_toStartOf="@+id/tv_item_likes"
         app:layout_constraintStart_toEndOf="@+id/iv_profile_picture"
@@ -61,60 +59,64 @@
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="3.4K" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_title_photos"
+        style="@style/Theme.Picttr.Caption"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Photos"
+        android:text="@string/title_photos"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/iv_profile_picture"
         app:layout_constraintEnd_toStartOf="@+id/tv_title_likes"
         app:layout_constraintStart_toEndOf="@+id/iv_profile_picture"
-        app:layout_constraintTop_toBottomOf="@id/tv_item_photos" />
+        app:layout_constraintTop_toBottomOf="@id/tv_item_photos"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_item_likes"
+        style="@style/Theme.Picttr.Headline6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         app:layout_constraintEnd_toStartOf="@id/tv_item_collection"
         app:layout_constraintStart_toEndOf="@+id/tv_item_photos"
         app:layout_constraintTop_toTopOf="@+id/tv_item_photos"
         tools:text="30K" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_title_likes"
+        style="@style/Theme.Picttr.Caption"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Likes"
+        android:text="@string/title_likes"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tv_title_photos"
         app:layout_constraintEnd_toStartOf="@+id/tv_title_collections"
         app:layout_constraintStart_toEndOf="@+id/tv_title_photos"
         app:layout_constraintTop_toTopOf="@+id/tv_title_photos" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_item_collection"
+        style="@style/Theme.Picttr.Headline6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         app:layout_constraintEnd_toStartOf="@+id/end_guideline"
         app:layout_constraintStart_toEndOf="@+id/tv_item_likes"
         app:layout_constraintTop_toTopOf="@+id/tv_item_likes"
         tools:text="1.9M" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_title_collections"
+        style="@style/Theme.Picttr.Caption"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Collections"
+        android:text="@string/title_collection"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tv_title_likes"
         app:layout_constraintEnd_toEndOf="@id/end_guideline"
         app:layout_constraintStart_toEndOf="@+id/tv_title_likes"

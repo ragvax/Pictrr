@@ -19,4 +19,9 @@
     <string name="exif_shutter">Shutter Speed</string>
     <string name="exif_iso">ISO</string>
     <string name="exif_dimension">Dimension</string>
+    <string name="title_photos">Photos</string>
+    <string name="title_collection">Collections</string>
+    <string name="desc_profile_picture">Profile Picture</string>
+    <string name="desc_image">Image</string>
+    <string name="desc_item_row_image">Item row image</string>
 </resources>
