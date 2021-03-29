@@ -21,4 +21,9 @@ class PhotoZoomFragment : Fragment(R.layout.fragment_photo_zoom) {
         val photo = args.photo
         binding.ivPhoto.loadPhotoUrlWithThumbnail(photo.urls.full, photo.urls.regular, photo.color, false)
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

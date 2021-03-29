@@ -10,10 +10,10 @@
         android:id="@+id/iv_profile_picture"
         android:layout_width="92dp"
         android:layout_height="92dp"
+        android:contentDescription="@string/desc_profile_picture"
         app:layout_constraintStart_toStartOf="@+id/start_guideline"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars"
-        android:contentDescription="@string/desc_profile_picture" />
+        tools:srcCompat="@tools:sample/avatars" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_name"
@@ -43,7 +43,7 @@
         app:layout_constraintEnd_toStartOf="@+id/end_guideline"
         app:layout_constraintStart_toStartOf="@+id/start_guideline"
         app:layout_constraintTop_toBottomOf="@+id/tv_location"
-        tools:text="A computer science student who loves to takes picture on his free time." />
+        tools:text="Jakarta based photographer shooting on Sony. Exploring different flavours of imagery to see what is the most fun http://notarealsite.com" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_item_photos"

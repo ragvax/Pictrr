@@ -5,21 +5,26 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_item"
+        style="@style/Theme.Picttr.Subtitle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
         android:minWidth="72dp"
         android:paddingHorizontal="12dp"
-        android:paddingVertical="8dp"
         android:textAlignment="center"
-        android:textSize="16sp"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Topic Title" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

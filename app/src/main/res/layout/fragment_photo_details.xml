@@ -23,12 +23,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
+            android:contentDescription="@string/desc_image"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/backgrounds/scenic"
-            android:contentDescription="@string/desc_image" />
+            tools:src="@tools:sample/backgrounds/scenic" />
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.textview.MaterialTextView
@@ -36,7 +36,7 @@
         style="@style/Theme.Picttr.Subtitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="@id/start_guideline"
         app:layout_constraintTop_toBottomOf="@id/photo_container"
         tools:text="Rizki Fajar" />
@@ -46,7 +46,7 @@
         style="@style/Theme.Picttr.Body2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="6dp"
         app:layout_constraintEnd_toEndOf="@id/end_guideline"
         app:layout_constraintStart_toStartOf="@id/start_guideline"
         app:layout_constraintTop_toBottomOf="@id/tv_user_username"
@@ -138,7 +138,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/exif_camera"
-        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/tv_title_focal_length"
         app:layout_constraintStart_toStartOf="@id/start_guideline"
         app:layout_constraintTop_toBottomOf="@id/spacer2" />
@@ -161,7 +160,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/exif_focal_length"
-        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@id/end_guideline"
         app:layout_constraintStart_toEndOf="@id/tv_title_camera"
         app:layout_constraintTop_toTopOf="@+id/tv_title_camera" />
@@ -183,9 +181,8 @@
         style="@style/Theme.Picttr.Subtitle2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/exif_aperture"
-        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/tv_title_shutter"
         app:layout_constraintStart_toStartOf="@id/start_guideline"
         app:layout_constraintTop_toBottomOf="@id/tv_item_camera" />
@@ -208,7 +205,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/exif_shutter"
-        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@id/end_guideline"
         app:layout_constraintStart_toEndOf="@id/tv_title_aperture"
         app:layout_constraintTop_toTopOf="@+id/tv_title_aperture" />
@@ -230,9 +226,8 @@
         style="@style/Theme.Picttr.Subtitle2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/exif_iso"
-        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@id/tv_title_dimension"
         app:layout_constraintStart_toEndOf="@id/start_guideline"
         app:layout_constraintTop_toBottomOf="@+id/tv_item_aperture" />
@@ -255,7 +250,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/exif_dimension"
-        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@id/end_guideline"
         app:layout_constraintStart_toEndOf="@id/tv_title_iso"
         app:layout_constraintTop_toTopOf="@+id/tv_title_iso" />
@@ -285,5 +279,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="599dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
