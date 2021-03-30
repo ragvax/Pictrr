@@ -8,8 +8,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="location_template" translatable="false">%s, %s</string>
     <string name="title_likes">Likes</string>
     <string name="title_downloads">Downloads</string>
     <string name="title_views">Views</string>

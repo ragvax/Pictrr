@@ -2,7 +2,6 @@ package com.ragvax.picttr.ui.photodetails
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -10,10 +9,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ragvax.picttr.R
+import com.ragvax.picttr.data.photo.model.Location
 import com.ragvax.picttr.data.photo.model.Photo
 import com.ragvax.picttr.databinding.FragmentPhotoDetailsBinding
 import com.ragvax.picttr.utils.collectWhileStarted
 import com.ragvax.picttr.utils.loadPhotoUrlWithThumbnail
+import com.ragvax.picttr.utils.openLocationInMaps
 import com.ragvax.picttr.utils.toPrettyString
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -22,7 +23,6 @@ import kotlinx.coroutines.flow.collectLatest
 class PhotoDetailsFragment : Fragment(R.layout.fragment_photo_details) {
     private val viewModel by viewModels<PhotoDetailsViewModel>()
     private val args: PhotoDetailsFragmentArgs by navArgs()
-
     private var _binding: FragmentPhotoDetailsBinding? = null
     private val binding get() = _binding!!
 
@@ -65,6 +65,9 @@ class PhotoDetailsFragment : Fragment(R.layout.fragment_photo_details) {
                     val action = PhotoDetailsFragmentDirections.actionDetailsFragmentToProfileFragment(event.user!!)
                     findNavController().navigate(action)
                 }
+                is PhotoDetailsViewModel.PhotoDetailsEvent.NavigateToMaps -> {
+                    requireContext().openLocationInMaps(event.location)
+                }
             }
         }
     }
@@ -75,45 +78,69 @@ class PhotoDetailsFragment : Fragment(R.layout.fragment_photo_details) {
         tvUserUsername.text = photo.user?.name
         tvUserUsername.setOnClickListener { viewModel.onUserClick(photo.user) }
         tvImageDescription.text = photo.description ?: "No description"
-        tvLocation.text = if (photo.location != null)
-            photo.location.city + ", " + photo.location.country
-        else
-            "No location"
+    }
+
+    private fun setLocationString(location: Location?): String {
+        return when {
+            location?.title != null -> {
+                location.title
+            }
+            location?.name != null -> {
+                location.name
+            }
+            location?.city != null && location.country != null -> {
+                getString(R.string.location_template, location.city, location.country)
+            }
+            location?.city != null && location.country == null -> {
+                location.city
+            }
+            location?.city == null && location?.country != null -> {
+                location.country
+            }
+            else -> {
+                "No Location"
+            }
+        }
     }
 
     private fun bindDetails(photo: Photo) = with(binding) {
-            tvItemLikes.text = (photo.likes ?: 0).toPrettyString()
-            tvItemDownloads.text = (photo.downloads ?: 0).toPrettyString()
-            tvItemViews.text = (photo.views ?: 0).toPrettyString()
+        photo.location.let { location ->
+            val locationString = setLocationString(location)
+            tvLocation.text = locationString
+            tvLocation.setOnClickListener { viewModel.onLocationClick(locationString) }
+        }
+        tvItemLikes.text = (photo.likes ?: 0).toPrettyString()
+        tvItemDownloads.text = (photo.downloads ?: 0).toPrettyString()
+        tvItemViews.text = (photo.views ?: 0).toPrettyString()
 
-            tvItemCamera.text = photo.exif?.model ?: "Unknown"
-            tvItemAperture.text = photo.exif?.aperture ?: "Unknown"
-            tvItemFocalLength.text = photo.exif?.focal_length ?: "Unknown"
-            tvItemShutter.text = photo.exif?.exposure_time ?: "Unknown"
-            tvItemIso.text = photo.exif?.iso?.toString() ?: "Unknown"
-            tvItemDimension.text = "${photo.width} x ${photo.height}"
+        tvItemCamera.text = photo.exif?.model ?: "Unknown"
+        tvItemAperture.text = photo.exif?.aperture ?: "Unknown"
+        tvItemFocalLength.text = photo.exif?.focal_length ?: "Unknown"
+        tvItemShutter.text = photo.exif?.exposure_time ?: "Unknown"
+        tvItemIso.text = photo.exif?.iso?.toString() ?: "Unknown"
+        tvItemDimension.text = "${photo.width} x ${photo.height}"
     }
 
     private fun setDetailsVisibility(boolean: Boolean) = with(binding) {
-            tvTitleLikes.isVisible = boolean
-            tvTitleDownloads.isVisible = boolean
-            tvTitleViews.isVisible = boolean
-            tvItemLikes.isVisible = boolean
-            tvItemDownloads.isVisible = boolean
-            tvItemViews.isVisible = boolean
+        tvTitleLikes.isVisible = boolean
+        tvTitleDownloads.isVisible = boolean
+        tvTitleViews.isVisible = boolean
+        tvItemLikes.isVisible = boolean
+        tvItemDownloads.isVisible = boolean
+        tvItemViews.isVisible = boolean
 
-            tvTitleCamera.isVisible = boolean
-            tvTitleAperture.isVisible = boolean
-            tvTitleFocalLength.isVisible = boolean
-            tvTitleShutter.isVisible = boolean
-            tvTitleIso.isVisible = boolean
-            tvTitleDimension.isVisible = boolean
-            tvItemCamera.isVisible = boolean
-            tvItemAperture.isVisible = boolean
-            tvItemFocalLength.isVisible = boolean
-            tvItemShutter.isVisible = boolean
-            tvItemIso.isVisible = boolean
-            tvItemDimension.isVisible = boolean
+        tvTitleCamera.isVisible = boolean
+        tvTitleAperture.isVisible = boolean
+        tvTitleFocalLength.isVisible = boolean
+        tvTitleShutter.isVisible = boolean
+        tvTitleIso.isVisible = boolean
+        tvTitleDimension.isVisible = boolean
+        tvItemCamera.isVisible = boolean
+        tvItemAperture.isVisible = boolean
+        tvItemFocalLength.isVisible = boolean
+        tvItemShutter.isVisible = boolean
+        tvItemIso.isVisible = boolean
+        tvItemDimension.isVisible = boolean
     }
 
     override fun onDestroy() {

@@ -44,6 +44,8 @@ data class Exif(
 
 @Parcelize
 data class Location(
+    val title: String?,
+    val name: String?,
     val city: String?,
     val country: String?,
     val position: Position?,
