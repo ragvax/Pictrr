@@ -10,8 +10,8 @@
         android:id="@+id/rv_gallery_tags"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:clipToPadding="false"
+        android:orientation="horizontal"
         android:paddingHorizontal="4dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,6 +39,20 @@
         app:layout_constraintTop_toBottomOf="@id/space_1"
         tools:listitem="@layout/item_photo" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_topics_error_message"
+        style="@style/Theme.Picttr.Subtitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Failed to retrieve topics"
+        tools:visibility="visible" />
+
     <ProgressBar
         android:id="@+id/progress_circular_loading"
         android:layout_width="wrap_content"
@@ -49,6 +63,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rv_gallery_tags"
+        tools:visibility="visible" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_error_message"
+        style="@style/Theme.Picttr.Subtitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Something went wrong"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/btn_retry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:visibility="visible" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retry"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_error_message"
         tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Guideline

@@ -5,10 +5,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.ragvax.picttr.data.photo.PhotoService
 import com.ragvax.picttr.data.photo.model.Photo
-import com.ragvax.picttr.domain.photo.PhotoPagingSource
-import com.ragvax.picttr.domain.photo.TopicPhotoPagingSource
 import kotlinx.coroutines.flow.Flow
-import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
 

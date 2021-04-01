@@ -20,6 +20,8 @@ import com.ragvax.picttr.ui.gallery.adapter.GalleryLoadStateAdapter
 import com.ragvax.picttr.ui.gallery.adapter.GalleryTopicsAdapter
 import com.ragvax.picttr.utils.collectWhileStarted
 import com.ragvax.picttr.utils.dpToPixels
+import com.ragvax.picttr.utils.hide
+import com.ragvax.picttr.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -51,22 +53,32 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery),
     @FlowPreview
     @ExperimentalCoroutinesApi
     private fun observeViewModel() {
-        viewLifecycleOwner.lifecycleScope.launchWhenCreated {
-            viewModel.photosFlow.collectLatest {
-                photosAdapter.submitData(it)
+
+        viewModel.topicsFlow.collectWhileStarted(viewLifecycleOwner) {
+            when (it) {
+                is GalleryViewModel.TopicsEvent.Success -> {
+                    setupTopicsAdapter(it.topics)
+                    binding.tvTopicsErrorMessage.hide()
+                }
+                is GalleryViewModel.TopicsEvent.Loading -> {
+                    binding.progressCircularLoading.show()
+                }
+                is GalleryViewModel.TopicsEvent.Failure -> {
+                    binding.apply {
+                        tvTopicsErrorMessage.show()
+                        tvTopicsErrorMessage.text = it.errorText
+                    }
+                }
+                is GalleryViewModel.TopicsEvent.Empty -> {
+                    Toast.makeText(requireContext(), "Topics is Empty", Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
         }
 
-        viewLifecycleOwner.lifecycleScope.launchWhenCreated    {
-            viewModel.topicsFlow.collectLatest {
-                when (it) {
-                    is GalleryViewModel.TopicsEvent.Success -> {
-                        setupTopicsAdapter(it.topics)
-                    }
-                    is GalleryViewModel.TopicsEvent.Empty -> {
-                        Toast.makeText(requireContext(), "Topics is Empty", Toast.LENGTH_SHORT).show()
-                    }
-                }
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.photosFlow.collectLatest {
+                photosAdapter.submitData(it)
             }
         }
 
@@ -75,7 +87,6 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery),
                 is GalleryViewModel.GalleryEvent.NavigateToPhotoDetailsFragment -> {
                     val action = GalleryFragmentDirections.actionGalleryFragmentToPhotoDetailsFragment(event.photo)
                     findNavController().navigate(action)
-
                 }
             }
         }
@@ -97,6 +108,10 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery),
             rvGallery.setHasFixedSize(true)
             rvGallery.adapter = concatAdapter
             rvGallery.addItemDecoration(GalleryGridSpacingItemDecoration(16.dpToPixels(requireContext())))
+            btnRetry.setOnClickListener {
+                viewModel.getTopics()
+                photosAdapter.retry()
+            }
         }
     }
 
@@ -117,6 +132,8 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery),
             binding.apply {
                 rvGallery.isVisible = combinedLoadStates.source.refresh is LoadState.NotLoading
                 progressCircularLoading.isVisible = combinedLoadStates.source.refresh is LoadState.Loading
+                btnRetry.isVisible = combinedLoadStates.source.refresh is LoadState.Error
+                tvErrorMessage.isVisible = combinedLoadStates.source.refresh is LoadState.Error
             }
         }
     }

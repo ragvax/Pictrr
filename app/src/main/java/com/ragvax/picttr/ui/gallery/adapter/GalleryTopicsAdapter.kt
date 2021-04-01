@@ -47,6 +47,6 @@ class GalleryTopicsAdapter(
     override fun getItemCount() = topics.size
 
     interface OnItemClickListener {
-        fun onItemClick(string: String)
+        fun onItemClick(id: String)
     }
 }

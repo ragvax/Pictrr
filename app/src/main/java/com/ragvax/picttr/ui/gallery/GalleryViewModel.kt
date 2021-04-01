@@ -10,6 +10,7 @@ import com.ragvax.picttr.data.photo.model.Photo
 import com.ragvax.picttr.data.topic.model.Topic
 import com.ragvax.picttr.domain.photo.PhotoRepository
 import com.ragvax.picttr.domain.topic.TopicRepository
+import com.ragvax.picttr.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -28,9 +29,6 @@ class GalleryViewModel @Inject constructor(
 
     init {
         getTopics()
-        if (!state.contains(CURRENT_QUERY)) {
-            state.set(CURRENT_QUERY, DEFAULT_QUERY)
-        }
     }
 
 //    val photos = repository.getPhotos().cachedIn(viewModelScope)
@@ -54,13 +52,18 @@ class GalleryViewModel @Inject constructor(
             .cachedIn(viewModelScope)
     ).flattenMerge()
 
-    private fun getTopics() = viewModelScope.launch(Dispatchers.IO) {
-        val response = topicRepository.getTopics()
-        val result = response.body()
-        if (response.isSuccessful && result != null) {
-            _topicsFlow.value = TopicsEvent.Success(result)
-        } else {
-            _topicsFlow.value = TopicsEvent.Empty
+    fun getTopics() = viewModelScope.launch(Dispatchers.IO) {
+        _topicsFlow.value = TopicsEvent.Loading
+        when(val result = topicRepository.getTopics()) {
+            is Resource.Success -> {
+                val data = result.data
+                if (data != null) {
+                    _topicsFlow.value = TopicsEvent.Success(result.data)
+                } else {
+                    _topicsFlow.value = TopicsEvent.Failure("Failed to retrieve data from server")
+                }
+            }
+            is Resource.Error -> _topicsFlow.value = TopicsEvent.Failure(result.msg!!)
         }
     }
 
@@ -88,6 +91,8 @@ class GalleryViewModel @Inject constructor(
 
     sealed class TopicsEvent {
         data class Success(val topics: List<Topic>) : TopicsEvent()
+        data class Failure(val errorText: String) : TopicsEvent()
+        object Loading : TopicsEvent()
         object Empty : TopicsEvent()
     }
 
