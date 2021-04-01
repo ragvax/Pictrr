@@ -4,6 +4,9 @@ Another Unsplash client, seriously? Well, I built this project to study the use 
 
 > **Caution:** This project contains large amount of **Code Smell.** Use it at Your Own Risk.
 
+## Screenshot
+![](https://github.com/ragvax/Pictrr/blob/master/assets/Home.png) ![](https://github.com/ragvax/Pictrr/blob/master/assets/Details.png) ![]![](https://github.com/ragvax/Pictrr/blob/master/assets/Profile.png)
+
 ## Built With
 * [Foundation][0] - Components for core system capabilities, Kotlin extensions and support for
   multidex and automated testing.
