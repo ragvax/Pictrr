@@ -9,12 +9,12 @@ import androidx.navigation.fragment.navArgs
 import com.ragvax.picttr.R
 import com.ragvax.picttr.data.photo.model.Photo
 import com.ragvax.picttr.databinding.FragmentPhotoZoomBinding
-import com.ragvax.picttr.ui.photodetails.PhotoZoomFragmentArgs
-import com.ragvax.picttr.ui.photodetails.PhotoZoomFragmentDirections
 import com.ragvax.picttr.utils.collectWhileStarted
 import com.ragvax.picttr.utils.loadPhotoUrlWithThumbnail
 import com.ragvax.picttr.utils.loadProfilePicture
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PhotoZoomFragment : Fragment(R.layout.fragment_photo_zoom) {
     private val viewModel: PhotoZoomViewModel by viewModels()
     private val args: PhotoZoomFragmentArgs by navArgs()
@@ -25,8 +25,8 @@ class PhotoZoomFragment : Fragment(R.layout.fragment_photo_zoom) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentPhotoZoomBinding.bind(view)
-
         val photo = args.photo
+
         initView(photo)
         observeViewModel()
     }
@@ -53,8 +53,7 @@ class PhotoZoomFragment : Fragment(R.layout.fragment_photo_zoom) {
         viewModel.photoZoomEvent.collectWhileStarted(viewLifecycleOwner) { event ->
             when (event) {
                 is PhotoZoomViewModel.PhotoZoomEvent.NavigateToUserProfile -> {
-                    val action =
-                        PhotoZoomFragmentDirections.actionPhotoZoomFragmentToProfileFragment(event.user!!)
+                    val action = PhotoZoomFragmentDirections.actionPhotoZoomFragmentToProfileFragment(event.user!!)
                     findNavController().navigate(action)
                 }
             }

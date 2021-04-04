@@ -1,5 +1,6 @@
 package com.ragvax.picttr
 
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -42,7 +43,8 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
 
                 R.id.photoZoomFragment -> {
-                    binding.toolbar.visibility = View.GONE
+                    binding.toolbar.visibility = View.VISIBLE
+                    supportActionBar!!.setDisplayShowTitleEnabled(false)
                 }
                 else -> {
                     binding.toolbar.visibility = View.VISIBLE
