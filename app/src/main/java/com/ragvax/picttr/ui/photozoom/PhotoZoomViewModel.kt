@@ -1,4 +1,4 @@
-package com.ragvax.picttr.ui.photodetails
+package com.ragvax.picttr.ui.photozoom
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

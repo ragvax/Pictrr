@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/photoZoomFragment"
-        android:name="com.ragvax.picttr.ui.photodetails.PhotoZoomFragment"
+        android:name="com.ragvax.picttr.ui.photozoom.PhotoZoomFragment"
         android:label="@string/photo_zoom_fragment_label"
         tools:layout="@layout/fragment_photo_zoom" >
         <argument

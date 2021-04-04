@@ -1,4 +1,4 @@
-package com.ragvax.picttr.ui.photodetails
+package com.ragvax.picttr.ui.photozoom
 
 import android.os.Bundle
 import android.view.View
@@ -9,6 +9,8 @@ import androidx.navigation.fragment.navArgs
 import com.ragvax.picttr.R
 import com.ragvax.picttr.data.photo.model.Photo
 import com.ragvax.picttr.databinding.FragmentPhotoZoomBinding
+import com.ragvax.picttr.ui.photodetails.PhotoZoomFragmentArgs
+import com.ragvax.picttr.ui.photodetails.PhotoZoomFragmentDirections
 import com.ragvax.picttr.utils.collectWhileStarted
 import com.ragvax.picttr.utils.loadPhotoUrlWithThumbnail
 import com.ragvax.picttr.utils.loadProfilePicture
@@ -51,7 +53,8 @@ class PhotoZoomFragment : Fragment(R.layout.fragment_photo_zoom) {
         viewModel.photoZoomEvent.collectWhileStarted(viewLifecycleOwner) { event ->
             when (event) {
                 is PhotoZoomViewModel.PhotoZoomEvent.NavigateToUserProfile -> {
-                    val action = PhotoZoomFragmentDirections.actionPhotoZoomFragmentToProfileFragment(event.user!!)
+                    val action =
+                        PhotoZoomFragmentDirections.actionPhotoZoomFragmentToProfileFragment(event.user!!)
                     findNavController().navigate(action)
                 }
             }
