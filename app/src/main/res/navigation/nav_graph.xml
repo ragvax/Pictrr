@@ -39,6 +39,9 @@
         <argument
             android:name="photo"
             app:argType="com.ragvax.picttr.data.photo.model.Photo" />
+        <action
+            android:id="@+id/action_photoZoomFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"

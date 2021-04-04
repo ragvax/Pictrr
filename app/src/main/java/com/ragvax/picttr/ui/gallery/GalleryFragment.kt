@@ -19,7 +19,7 @@ import com.ragvax.picttr.ui.gallery.adapter.GalleryAdapter
 import com.ragvax.picttr.ui.gallery.adapter.GalleryLoadStateAdapter
 import com.ragvax.picttr.ui.gallery.adapter.GalleryTopicsAdapter
 import com.ragvax.picttr.utils.collectWhileStarted
-import com.ragvax.picttr.utils.dpToPixels
+import com.ragvax.picttr.utils.dpToPx
 import com.ragvax.picttr.utils.hide
 import com.ragvax.picttr.utils.show
 import dagger.hilt.android.AndroidEntryPoint
@@ -107,7 +107,7 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery),
             rvGallery.layoutManager = staggeredGridLayoutManager
             rvGallery.setHasFixedSize(true)
             rvGallery.adapter = concatAdapter
-            rvGallery.addItemDecoration(GalleryGridSpacingItemDecoration(16.dpToPixels(requireContext())))
+            rvGallery.addItemDecoration(GalleryGridSpacingItemDecoration(16.dpToPx(requireContext())))
             btnRetry.setOnClickListener {
                 viewModel.getTopics()
                 photosAdapter.retry()

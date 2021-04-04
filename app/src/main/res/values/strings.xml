@@ -9,6 +9,7 @@
     <string name="previous">Previous</string>
 
     <string name="location_template" translatable="false">%s, %s</string>
+    <string name="image_size_template" translatable="false">%s x %s</string>
     <string name="title_likes">Likes</string>
     <string name="title_downloads">Downloads</string>
     <string name="title_views">Views</string>

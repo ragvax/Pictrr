@@ -13,6 +13,7 @@
         <item name="android:statusBarColor">?attr/colorSecondary</item>
         <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
         <!-- Customize your theme here. -->
+        <item name="colorControlNormal">?attr/colorOnSecondary</item>
     </style>
 
     <style name="Theme.Picttr.NoActionBar">
