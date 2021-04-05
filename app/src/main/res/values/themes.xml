@@ -166,6 +166,14 @@
     </style>
     <!-- Caption -->
 
+    <style name="Theme.Picttr.Caption2">
+        <item name="android:textAppearance">@style/TextAppearance.Picttr.Caption</item>
+        <item name="firstBaselineToTopHeight">12sp</item>
+        <item name="lastBaselineToBottomHeight">4sp</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+    <!-- Caption2 -->
+
     <!-- Overline -->
     <style name="TextAppearance.Picttr.Overline" parent="TextAppearance.MaterialComponents.Overline">
         <item name="android:textSize">10sp</item>

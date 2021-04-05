@@ -61,13 +61,12 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_title_photos"
-        style="@style/Theme.Picttr.Caption"
+        style="@style/Theme.Picttr.Caption2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/title_photos"
         android:textAlignment="center"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/iv_profile_picture"
         app:layout_constraintEnd_toStartOf="@+id/tv_title_likes"
         app:layout_constraintStart_toEndOf="@+id/iv_profile_picture"
@@ -87,12 +86,11 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_title_likes"
-        style="@style/Theme.Picttr.Caption"
+        style="@style/Theme.Picttr.Caption2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/title_likes"
         android:textAlignment="center"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tv_title_photos"
         app:layout_constraintEnd_toStartOf="@+id/tv_title_collections"
         app:layout_constraintStart_toEndOf="@+id/tv_title_photos"
@@ -111,12 +109,11 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_title_collections"
-        style="@style/Theme.Picttr.Caption"
+        style="@style/Theme.Picttr.Caption2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/title_collection"
         android:textAlignment="center"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tv_title_likes"
         app:layout_constraintEnd_toEndOf="@id/end_guideline"
         app:layout_constraintStart_toEndOf="@+id/tv_title_likes"

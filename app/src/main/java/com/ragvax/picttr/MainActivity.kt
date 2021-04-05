@@ -1,17 +1,14 @@
 package com.ragvax.picttr
 
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.ragvax.picttr.databinding.ActivityMainBinding
+import com.ragvax.picttr.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,13 +38,12 @@ class MainActivity : AppCompatActivity() {
     ) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-
                 R.id.photoZoomFragment -> {
-                    binding.toolbar.visibility = View.VISIBLE
+                    binding.toolbar.show()
                     supportActionBar!!.setDisplayShowTitleEnabled(false)
                 }
                 else -> {
-                    binding.toolbar.visibility = View.VISIBLE
+                    binding.toolbar.show()
                     supportActionBar!!.setDisplayShowTitleEnabled(true)
                 }
             }
