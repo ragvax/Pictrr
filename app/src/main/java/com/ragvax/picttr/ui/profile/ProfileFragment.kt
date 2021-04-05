@@ -13,7 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
-    private val viewModel by viewModels<ProfileViewModel>()
+    private val viewModel: ProfileViewModel by viewModels()
     private val args: ProfileFragmentArgs by navArgs()
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!

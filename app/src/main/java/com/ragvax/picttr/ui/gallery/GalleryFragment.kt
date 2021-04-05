@@ -30,9 +30,7 @@ import kotlinx.coroutines.flow.collectLatest
 @AndroidEntryPoint
 class GalleryFragment : Fragment(R.layout.fragment_gallery),
     GalleryTopicsAdapter.OnItemClickListener, GalleryAdapter.OnItemClickListener {
-
-    private val viewModel by viewModels<GalleryViewModel>()
-
+    private val viewModel: GalleryViewModel by viewModels()
     private var _binding: FragmentGalleryBinding? = null
     private val binding get() = _binding!!
 

@@ -21,7 +21,7 @@ import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class PhotoDetailsFragment : Fragment(R.layout.fragment_photo_details) {
-    private val viewModel by viewModels<PhotoDetailsViewModel>()
+    private val viewModel: PhotoDetailsViewModel by viewModels()
     private val args: PhotoDetailsFragmentArgs by navArgs()
     private var _binding: FragmentPhotoDetailsBinding? = null
     private val binding get() = _binding!!
