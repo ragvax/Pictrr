@@ -2,9 +2,7 @@ package com.ragvax.picttr.ui.photodetails
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ragvax.picttr.data.photo.model.Location
 import com.ragvax.picttr.data.photo.model.Photo
-import com.ragvax.picttr.data.photo.model.Position
 import com.ragvax.picttr.data.user.model.User
 import com.ragvax.picttr.domain.photo.PhotoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -1,12 +1,9 @@
 <resources>
     <string name="app_name">Picttr</string>
-    <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="gallery_fragment_label">Picttr</string>
     <string name="details_fragment_label">Details</string>
     <string name="photo_zoom_fragment_label">Zoom Photo</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
     <string name="location_template" translatable="false">%s, %s</string>
     <string name="image_size_template" translatable="false">%s x %s</string>
@@ -21,7 +18,14 @@
     <string name="exif_dimension">Dimension</string>
     <string name="title_photos">Photos</string>
     <string name="title_collection">Collections</string>
+    <string name="retry">Retry</string>
+
+    <!-- Content Description -->
     <string name="desc_profile_picture">Profile Picture</string>
     <string name="desc_image">Image</string>
     <string name="desc_item_row_image">Item row image</string>
+
+    <!-- ERROR -->
+    <string name="error_no_connection">Something went wrong</string>
+    <string name="error_result_could_not_be_loaded">Result could not be loaded</string>
 </resources>

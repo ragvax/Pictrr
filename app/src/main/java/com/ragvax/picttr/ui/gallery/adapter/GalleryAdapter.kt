@@ -6,8 +6,6 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.ragvax.picttr.data.photo.model.Photo
 import com.ragvax.picttr.databinding.ItemPhotoBinding
 import com.ragvax.picttr.utils.loadGridPhotoUrl

@@ -5,4 +5,5 @@ import com.bumptech.glide.module.AppGlideModule
 
 @GlideModule
 class GlideAppModule : AppGlideModule() {
+
 }

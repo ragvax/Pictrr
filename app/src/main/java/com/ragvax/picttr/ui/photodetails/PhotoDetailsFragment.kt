@@ -118,7 +118,7 @@ class PhotoDetailsFragment : Fragment(R.layout.fragment_photo_details) {
         tvItemFocalLength.text = photo.exif?.focal_length ?: "Unknown"
         tvItemShutter.text = photo.exif?.exposure_time ?: "Unknown"
         tvItemIso.text = photo.exif?.iso?.toString() ?: "Unknown"
-        tvItemDimension.text = "${photo.width} x ${photo.height}"
+        tvItemDimension.text = getString(R.string.image_size_template, photo.width, photo.height)
     }
 
     private fun setDetailsVisibility(boolean: Boolean) = with(binding) {
