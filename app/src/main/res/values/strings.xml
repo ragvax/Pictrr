@@ -28,4 +28,5 @@
     <!-- ERROR -->
     <string name="error_no_connection">Something went wrong</string>
     <string name="error_result_could_not_be_loaded">Result could not be loaded</string>
+    <string name="open_portofolio_link">Open Portofolio</string>
 </resources>

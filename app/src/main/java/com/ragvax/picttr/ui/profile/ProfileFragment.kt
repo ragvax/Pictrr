@@ -1,6 +1,11 @@
 package com.ragvax.picttr.ui.profile
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -25,6 +30,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         initView(user)
         observeViewModel()
+        setHasOptionsMenu(true)
     }
 
     private fun initView(user: User) {
@@ -50,10 +56,31 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 is ProfileViewModel.ProfileEvent.NavigateToMaps -> {
                     requireContext().openLocationInMaps(event.location)
                 }
+                is ProfileViewModel.ProfileEvent.NavigateToBrowser -> {
+                    requireContext().openProfileInBrowser(event.links)
+                }
             }
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_profile, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_open_in_browser -> {
+                if (args.user.links == null) {
+                    true
+                } else {
+                    viewModel.onOpenInBrowser(args.user.links!!)
+                    true
+                }
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

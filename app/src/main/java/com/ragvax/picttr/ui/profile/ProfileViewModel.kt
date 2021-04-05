@@ -2,6 +2,7 @@ package com.ragvax.picttr.ui.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ragvax.picttr.data.user.model.Links
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -18,7 +19,12 @@ class ProfileViewModel @Inject constructor() : ViewModel() {
         profileEventChannel.send(ProfileEvent.NavigateToMaps(location))
     }
 
+    fun onOpenInBrowser(links: Links) = viewModelScope.launch {
+        profileEventChannel.send(ProfileEvent.NavigateToBrowser(links))
+    }
+
     sealed class ProfileEvent {
         data class NavigateToMaps(val location: String?) : ProfileEvent()
+        data class NavigateToBrowser(val links: Links?) : ProfileEvent()
     }
 }
